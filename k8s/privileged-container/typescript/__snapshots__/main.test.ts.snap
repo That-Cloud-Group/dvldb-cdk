@@ -16,7 +16,7 @@ Array [
         },
       ],
       "selector": Object {
-        "app": "attackstacks-privileged-container",
+        "app": "dvldb-privileged-container",
       },
       "type": "LoadBalancer",
     },
@@ -31,13 +31,13 @@ Array [
       "replicas": 2,
       "selector": Object {
         "matchLabels": Object {
-          "app": "attackstacks-privileged-container",
+          "app": "dvldb-privileged-container",
         },
       },
       "template": Object {
         "metadata": Object {
           "labels": Object {
-            "app": "attackstacks-privileged-container",
+            "app": "dvldb-privileged-container",
           },
         },
         "spec": Object {

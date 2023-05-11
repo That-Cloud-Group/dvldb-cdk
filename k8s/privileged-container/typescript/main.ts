@@ -9,7 +9,7 @@ export class PrivilegedContainerChart extends Chart {
   constructor(scope: Construct, id: string, props: ChartProps = { }) {
     super(scope, id, props);
 
-    const label = { app: 'attackstacks-privileged-container' };
+    const label = { app: 'dvldb-privileged-container' };
 
     new KubeService(this, 'service', {
       spec: {
@@ -44,5 +44,5 @@ export class PrivilegedContainerChart extends Chart {
 }
 
 const app = new App();
-new PrivilegedContainerChart(app, 'attackstacks-privileged-container');
+new PrivilegedContainerChart(app, 'dvldb-privileged-container');
 app.synth();
