@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dvldb-root-user-container-service-c8c0c1ac
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: root-user-container
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dvldb-root-user-container-deployment-c8ebae25
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: root-user-container
+  template:
+    metadata:
+      labels:
+        app: root-user-container
+    spec:
+      containers:
+        - image: nginx:latest
+          name: nginx
+          ports:
+            - containerPort: 8080
+          securityContext:
+            runAsUser: 0
