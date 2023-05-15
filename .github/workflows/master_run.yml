@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-      - run: cd k8s/privileged-container && npm install && npm run test
-      - run: cd k8s/root-user-container && npm install && npm run test
-      - run: cd k8s/cluster-admin-used && npm install && npm run test
+          node-version: 18
+      - run: cd k8s/privileged-container/typescript/ && npm install && npm run test
+      - run: cd k8s/root-user-container/typescript/ && npm install && npm run test
+      - run: cd k8s/cluster-admin-used/typescript/ && npm install && npm run test
