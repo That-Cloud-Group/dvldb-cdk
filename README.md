@@ -1,4 +1,5 @@
 # dvldb CDK 
+![master](https://github.com/rjulian/dvldb-cdk/actions/workflows/master.yml/badge.svg)
 
 An inventory of CDK generated Infrastructure as Code (IaC) templates that you can use to test your defenses against possible misconfigurations and vulnerable settings.
 
