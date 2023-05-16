@@ -12,6 +12,8 @@ An inventory of CDK generated Infrastructure as Code (IaC) templates that you ca
 * [root-user-container](./k8s/root-user-container/) - Runs a deployment featuring containers running as user 0 (root).
 
 ### AWS
+* [s3-public-bucket](./aws/s3-public-bucket) - deploys an S3 Bucket with a bucket policy making it public.
+* [sqs-public-queue](./aws/sqs-public-queue) - deploys an SQS Queue with a resource policy making it public.
 
 ### GCP
 
