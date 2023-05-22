@@ -1,8 +1,8 @@
 import { SysAdminCapChart } from "./main";
 import { Testing } from "cdk8s";
 
-describe("Placeholder", () => {
-  test("Empty", () => {
+describe("SysAdminCap synth", () => {
+  test("Service deployment and capabilities add", () => {
     const app = Testing.app();
     const chart = new SysAdminCapChart(app, "test-chart");
     const results = Testing.synth(chart);

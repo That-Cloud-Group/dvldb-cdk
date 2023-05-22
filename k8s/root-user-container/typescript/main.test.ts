@@ -1,8 +1,8 @@
 import { RootContainerChart } from "./main";
 import { Testing } from "cdk8s";
 
-describe("Placeholder", () => {
-  test("Empty", () => {
+describe("RootContainerChart synth", () => {
+  test("Service deployment and run as root", () => {
     const app = Testing.app();
     const chart = new RootContainerChart(app, "test-chart");
     const results = Testing.synth(chart);
