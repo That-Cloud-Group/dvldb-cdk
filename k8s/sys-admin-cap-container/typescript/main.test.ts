@@ -1,10 +1,10 @@
-import { CapSysAdminChart } from "./main";
+import { SysAdminCapChart } from "./main";
 import { Testing } from "cdk8s";
 
 describe("Placeholder", () => {
   test("Empty", () => {
     const app = Testing.app();
-    const chart = new CapSysAdminChart(app, "test-chart");
+    const chart = new SysAdminCapChart(app, "test-chart");
     const results = Testing.synth(chart);
 
     // Basic infra tests

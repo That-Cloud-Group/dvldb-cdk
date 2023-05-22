@@ -4,11 +4,11 @@ import { App, Chart, ChartProps } from "cdk8s";
 // imported constructs
 import { KubeDeployment, KubeService, IntOrString } from "./imports/k8s";
 
-export class CapSysAdminChart extends Chart {
+export class SysAdminCapChart extends Chart {
   constructor(scope: Construct, id: string, props: ChartProps = {}) {
     super(scope, id, props);
 
-    const label = { app: "cap-sys-admin-container" };
+    const label = { app: "sys-admin-cap-container" };
 
     new KubeService(this, "service", {
       spec: {
@@ -43,5 +43,5 @@ export class CapSysAdminChart extends Chart {
 }
 
 const app = new App();
-new CapSysAdminChart(app, "dvldb-cap-sys-admin-container");
+new SysAdminCapChart(app, "dvldb-sys-admin-cap-container");
 app.synth();

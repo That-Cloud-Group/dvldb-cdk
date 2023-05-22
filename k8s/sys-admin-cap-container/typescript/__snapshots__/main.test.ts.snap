@@ -16,7 +16,7 @@ Array [
         },
       ],
       "selector": Object {
-        "app": "cap-sys-admin-container",
+        "app": "sys-admin-cap-container",
       },
       "type": "LoadBalancer",
     },
@@ -31,13 +31,13 @@ Array [
       "replicas": 2,
       "selector": Object {
         "matchLabels": Object {
-          "app": "cap-sys-admin-container",
+          "app": "sys-admin-cap-container",
         },
       },
       "template": Object {
         "metadata": Object {
           "labels": Object {
-            "app": "cap-sys-admin-container",
+            "app": "sys-admin-cap-container",
           },
         },
         "spec": Object {
