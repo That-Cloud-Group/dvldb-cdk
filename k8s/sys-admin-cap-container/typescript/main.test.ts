@@ -14,8 +14,9 @@ describe("Placeholder", () => {
 
     // Guarantee insecure
     expect(
-      results[1].spec.template.spec.containers[0].securityContext.capabilities.add[0]
-    ).toEqual('SYS_ADMIN');
+      results[1].spec.template.spec.containers[0].securityContext.capabilities
+        .add[0]
+    ).toEqual("SYS_ADMIN");
 
     //  Snapshot tests
     expect(results).toMatchSnapshot();

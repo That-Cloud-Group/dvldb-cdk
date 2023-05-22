@@ -32,7 +32,7 @@ export class CapSysAdminChart extends Chart {
                 name: "nginx",
                 image: "nginx:latest",
                 ports: [{ containerPort: 8080 }],
-                securityContext: { capabilities: {add: ['SYS_ADMIN']} },
+                securityContext: { capabilities: { add: ["SYS_ADMIN"] } },
               },
             ],
           },
