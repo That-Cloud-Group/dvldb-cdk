@@ -17,6 +17,7 @@ jobs:
       - run: cd k8s/privileged-container/typescript/ && npm install && npm run test
       - run: cd k8s/root-user-container/typescript/ && npm install && npm run test
       - run: cd k8s/cluster-admin-used/typescript/ && npm install && npm run test
+      - run: cd k8s/sys-admin-cap-container/typescript/ && npm install && npm run test
       - run: cd aws/s3-public-bucket/ && npm install && npm run test
       - run: cd aws/iam-admin-role/ && npm install && npm run test
       - run: cd aws/sqs-public-queue/ && npm install && npm run test

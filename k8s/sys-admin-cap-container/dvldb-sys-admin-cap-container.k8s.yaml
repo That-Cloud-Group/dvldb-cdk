@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dvldb-sys-admin-cap-container-service-c883f404
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: sys-admin-cap-container
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dvldb-sys-admin-cap-container-deployment-c8dd70d3
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sys-admin-cap-container
+  template:
+    metadata:
+      labels:
+        app: sys-admin-cap-container
+    spec:
+      containers:
+        - image: nginx:latest
+          name: nginx
+          ports:
+            - containerPort: 8080
+          securityContext:
+            capabilities:
+              add:
+                - SYS_ADMIN
