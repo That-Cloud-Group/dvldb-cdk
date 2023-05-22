@@ -12,6 +12,7 @@ An inventory of CDK generated Infrastructure as Code (IaC) templates that you ca
 - [privileged-container](./k8s/privileged-container/) - Runs a deployment featuring containers running with the SecurityContext setting "privileged" set to true.
 - [root-user-container](./k8s/root-user-container/) - Runs a deployment featuring containers running as user 0 (root).
 - [sys-admin-cap-container](./k8s/sys-admin-cap-container/) - Runs a deployment featuring containers granted access to CAP_SYS_ADMIN.
+- [host-path-mount-container](./k8s/host-path-mount-container/) - Runs a deployment with a mounted volume pointing to the host's `/var/log` directory.
 
 ### AWS
 
