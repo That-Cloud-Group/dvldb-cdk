@@ -1,8 +1,8 @@
 import { ClusterAdminChart } from "./main";
 import { Testing } from "cdk8s";
 
-describe("Placeholder", () => {
-  test("Empty", () => {
+describe("ClusterAdminChart synth", () => {
+  test("Deploy service account and bind cluster role", () => {
     const app = Testing.app();
     const chart = new ClusterAdminChart(app, "test-chart");
     const results = Testing.synth(chart);

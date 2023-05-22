@@ -1,8 +1,8 @@
 import { PrivilegedContainerChart } from "./main";
 import { Testing } from "cdk8s";
 
-describe("Placeholder", () => {
-  test("Empty", () => {
+describe("PrivilegedContainerChart synth", () => {
+  test("Deploy service and set priveleged true", () => {
     const app = Testing.app();
     const chart = new PrivilegedContainerChart(app, "test-chart");
     const results = Testing.synth(chart);
