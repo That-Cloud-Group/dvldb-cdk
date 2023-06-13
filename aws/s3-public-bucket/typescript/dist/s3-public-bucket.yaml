@@ -1,0 +1,47 @@
+Resources:
+  DVLDBPublicBucket41882100:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+    UpdateReplacePolicy: Delete
+    DeletionPolicy: Delete
+  DVLDBPublicBucketPolicyD880BAB3:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: DVLDBPublicBucket41882100
+      PolicyDocument:
+        Statement:
+          - Action: s3:GetObject
+            Effect: Allow
+            Principal: "*"
+            Resource:
+              Fn::Join:
+                - ""
+                - - Fn::GetAtt:
+                      - DVLDBPublicBucket41882100
+                      - Arn
+                  - /*
+        Version: "2012-10-17"
+Parameters:
+  BootstrapVersion:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /cdk-bootstrap/hnb659fds/version
+    Description: Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]
+Rules:
+  CheckBootstrapVersion:
+    Assertions:
+      - Assert:
+          Fn::Not:
+            - Fn::Contains:
+                - - "1"
+                  - "2"
+                  - "3"
+                  - "4"
+                  - "5"
+                - Ref: BootstrapVersion
+        AssertDescription: CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.
