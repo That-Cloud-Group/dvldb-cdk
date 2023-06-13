@@ -1,0 +1,3 @@
+{
+"description": "Runs a deployment featuring containers granted access to CAP_SYS_ADMIN."
+}

@@ -1,0 +1,3 @@
+{
+"description": "Runs a deployment featuring containers running as user 0 (root)."
+}

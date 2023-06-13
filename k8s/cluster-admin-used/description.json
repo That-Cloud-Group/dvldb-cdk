@@ -1,0 +1,3 @@
+{
+"description": "Deploys a ServiceAccount and a ClusterRoleBinding binding the default admin role to the new ServiceAccount."
+}

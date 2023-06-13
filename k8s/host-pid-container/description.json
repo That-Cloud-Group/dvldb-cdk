@@ -1,0 +1,3 @@
+{
+"description": "Runs a deployment with hostPID set to true, allowing visibility into the hosts processes."
+}

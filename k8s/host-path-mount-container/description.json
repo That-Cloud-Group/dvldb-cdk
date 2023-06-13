@@ -1,0 +1,3 @@
+{
+  "description": "Runs a deployment with a mounted volume pointing to the host's `/var/log` directory."
+}
