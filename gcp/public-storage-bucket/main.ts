@@ -15,7 +15,7 @@ import {
   DataGoogleIamPolicyBinding,
 } from "./.gen/providers/google/data-google-iam-policy";
 
-class MyStack extends TerraformStack {
+class PublicStorageBucket extends TerraformStack {
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
@@ -53,5 +53,5 @@ class MyStack extends TerraformStack {
 }
 
 const app = new App();
-new MyStack(app, "gcp-public-bucket");
+new PublicStorageBucket(app, "public-storage-bucket");
 app.synth();
