@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dvldb-log4shell-container-service-c8e238a8
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: dvldb-log4shell-container
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dvldb-log4shell-container-deployment-c89efefa
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dvldb-log4shell-container
+  template:
+    metadata:
+      labels:
+        app: dvldb-log4shell-container
+    spec:
+      containers:
+        - image: ghcr.io/christophetd/log4shell-vulnerable-app
+          name: tomcat
+          ports:
+            - containerPort: 8080
