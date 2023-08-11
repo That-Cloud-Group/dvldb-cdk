@@ -4,6 +4,19 @@
 
 An inventory of CDK generated Infrastructure as Code (IaC) templates that you can use to test your defenses against possible misconfigurations and vulnerable settings.
 
+## Usage
+
+Each supported DVL should include:
+* CDK code for modification of infrastructure, including basic unit testing of infrastructure.
+* Generated IaC template (e.g. cloudformation, terraform, kubernetes manifest) for quick deployment.
+* Information about the vulnerability and step by step instructions on exploitation. 
+
+Use the DVLs to:
+* test your detective controls
+* learn about relevant monitoring information surrounding insecure configurations
+* provide realistic training for security teams
+* understand platform-specific insecure configurations and common vulnerabilities 
+
 ## Platforms
 
 ### Kubernetes
@@ -23,3 +36,9 @@ An inventory of CDK generated Infrastructure as Code (IaC) templates that you ca
 - [iam-admin-role](./aws/iam-admin-role/) - deploys an IAM role in your environment with _:_ permissions on all resources.
 
 ### GCP
+
+## Contributing
+
+Security should be a collaborative effort. If you or your team have identified a platform-specific vulnerability and you can effectively generate the IaC, we'd strongly welcome the pull request.
+
+Detailed contributing guidelines coming soon.
