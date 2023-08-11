@@ -1,4 +1,4 @@
-# dvldb CDK
+# ![DVLDB Logo](./dvldb.png)
 
 ![master](https://github.com/rjulian/dvldb-cdk/actions/workflows/master.yml/badge.svg)
 
