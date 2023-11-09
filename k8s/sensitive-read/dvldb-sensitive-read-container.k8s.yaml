@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dvldb-sensitive-read-container-service-c8838208
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: dvldb-sensitive-read-container
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dvldb-sensitive-read-container-deployment-c879cc34
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dvldb-sensitive-read-container
+  template:
+    metadata:
+      labels:
+        app: dvldb-sensitive-read-container
+    spec:
+      containers:
+        - args:
+            - /etc/shadow
+          command:
+            - cat
+          image: nginx:latest
+          name: nginx
+          ports:
+            - containerPort: 8080

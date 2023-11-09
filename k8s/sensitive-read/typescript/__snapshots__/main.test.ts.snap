@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SensitiveReadContainerChart synth Deploy service and set priveleged true 1`] = `
+Array [
+  Object {
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": Object {
+      "name": "test-chart-service-c8a895ee",
+    },
+    "spec": Object {
+      "ports": Array [
+        Object {
+          "port": 80,
+          "targetPort": 8080,
+        },
+      ],
+      "selector": Object {
+        "app": "dvldb-sensitive-read-container",
+      },
+      "type": "LoadBalancer",
+    },
+  },
+  Object {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": Object {
+      "name": "test-chart-deployment-c8d4e901",
+    },
+    "spec": Object {
+      "replicas": 2,
+      "selector": Object {
+        "matchLabels": Object {
+          "app": "dvldb-sensitive-read-container",
+        },
+      },
+      "template": Object {
+        "metadata": Object {
+          "labels": Object {
+            "app": "dvldb-sensitive-read-container",
+          },
+        },
+        "spec": Object {
+          "containers": Array [
+            Object {
+              "args": Array [
+                "/etc/shadow",
+              ],
+              "command": Array [
+                "cat",
+              ],
+              "image": "nginx:latest",
+              "name": "nginx",
+              "ports": Array [
+                Object {
+                  "containerPort": 8080,
+                },
+              ],
+            },
+          ],
+        },
+      },
+    },
+  },
+]
+`;
