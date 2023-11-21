@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dvldb-api-server-connection-container-service-c8586aba
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: dvldb-api-server-connection-container
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dvldb-api-server-connection-container-deployment-c8aadad4
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dvldb-api-server-connection-container
+  template:
+    metadata:
+      labels:
+        app: dvldb-api-server-connection-container
+    spec:
+      containers:
+        - args:
+            - http://kubernetes.default.svc.cluster.local/
+          command:
+            - curl
+          image: nginx:latest
+          name: nginx
+          ports:
+            - containerPort: 8080
