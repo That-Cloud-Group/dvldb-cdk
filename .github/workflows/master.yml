@@ -22,7 +22,7 @@ jobs:
       - run: cd k8s/host-pid-container/typescript/ && npm install && npm run test
       - run: cd k8s/log4shell-container/typescript/ && npm install && npm run test
       - run: cd k8s/sensitive-read/typescript/ && npm install && npm run test
+      - run: cd k8s/sshd-nonstandard-port/typescript/ && npm install && npm run test
       - run: cd aws/s3-public-bucket/typescript/ && npm install && npm run test
       - run: cd aws/iam-admin-role/typescript/ && npm install && npm run test
       - run: cd aws/sqs-public-queue/typescript/ && npm install && npm run test
-      - run: cd aws/sshd-nonstandard-port/typescript/ && npm install && npm run test
