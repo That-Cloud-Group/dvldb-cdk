@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nonstandard-sshd-service
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: dvldb-sshd-nonstandard-port-container
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dvldb-sshd-nonstandard-port-container-deployment-c87e3a0e
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dvldb-sshd-nonstandard-port-container
+  template:
+    metadata:
+      labels:
+        app: dvldb-sshd-nonstandard-port-container
+    spec:
+      containers:
+        - image: rjulian/sshdalpine:latest
+          name: sshdalpine
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dvldb-sshd-nonstandard-port-container-sshclient-c846d610
+spec:
+  containers:
+    - command:
+        - sh
+        - -c
+        - ssh -p 8080 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@nonstandard-sshd-service.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local "sleep 500"
+      image: rjulian/sshdalpine:latest
+      name: sshdalpine-client
+  initContainers:
+    - command:
+        - sh
+        - -c
+        - until nslookup nonstandard-sshd-service.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done
+      image: busybox:latest
+      name: init-sshd-service
