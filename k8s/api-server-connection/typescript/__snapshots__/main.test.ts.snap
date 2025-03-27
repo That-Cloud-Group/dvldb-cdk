@@ -1,58 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApiServerConnectionContainerChart synth Deploy service and set priveleged true 1`] = `
-Array [
-  Object {
+[
+  {
     "apiVersion": "v1",
     "kind": "Service",
-    "metadata": Object {
+    "metadata": {
       "name": "test-chart-service-c8a895ee",
     },
-    "spec": Object {
-      "ports": Array [
-        Object {
+    "spec": {
+      "ports": [
+        {
           "port": 80,
           "targetPort": 8080,
         },
       ],
-      "selector": Object {
+      "selector": {
         "app": "dvldb-api-server-connection-container",
       },
       "type": "LoadBalancer",
     },
   },
-  Object {
+  {
     "apiVersion": "apps/v1",
     "kind": "Deployment",
-    "metadata": Object {
+    "metadata": {
       "name": "test-chart-deployment-c8d4e901",
     },
-    "spec": Object {
+    "spec": {
       "replicas": 2,
-      "selector": Object {
-        "matchLabels": Object {
+      "selector": {
+        "matchLabels": {
           "app": "dvldb-api-server-connection-container",
         },
       },
-      "template": Object {
-        "metadata": Object {
-          "labels": Object {
+      "template": {
+        "metadata": {
+          "labels": {
             "app": "dvldb-api-server-connection-container",
           },
         },
-        "spec": Object {
-          "containers": Array [
-            Object {
-              "args": Array [
+        "spec": {
+          "containers": [
+            {
+              "args": [
                 "http://kubernetes.default.svc.cluster.local/",
               ],
-              "command": Array [
+              "command": [
                 "curl",
               ],
               "image": "nginx:latest",
               "name": "nginx",
-              "ports": Array [
-                Object {
+              "ports": [
+                {
                   "containerPort": 8080,
                 },
               ],

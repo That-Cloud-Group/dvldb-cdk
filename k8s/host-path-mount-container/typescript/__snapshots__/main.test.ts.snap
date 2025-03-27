@@ -1,66 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HostPathMount synth Service deployment and volume mount 1`] = `
-Array [
-  Object {
+[
+  {
     "apiVersion": "v1",
     "kind": "Service",
-    "metadata": Object {
+    "metadata": {
       "name": "test-chart-service-c8a895ee",
     },
-    "spec": Object {
-      "ports": Array [
-        Object {
+    "spec": {
+      "ports": [
+        {
           "port": 80,
           "targetPort": 8080,
         },
       ],
-      "selector": Object {
+      "selector": {
         "app": "host-path-mount-container",
       },
       "type": "LoadBalancer",
     },
   },
-  Object {
+  {
     "apiVersion": "apps/v1",
     "kind": "Deployment",
-    "metadata": Object {
+    "metadata": {
       "name": "test-chart-deployment-c8d4e901",
     },
-    "spec": Object {
+    "spec": {
       "replicas": 2,
-      "selector": Object {
-        "matchLabels": Object {
+      "selector": {
+        "matchLabels": {
           "app": "host-path-mount-container",
         },
       },
-      "template": Object {
-        "metadata": Object {
-          "labels": Object {
+      "template": {
+        "metadata": {
+          "labels": {
             "app": "host-path-mount-container",
           },
         },
-        "spec": Object {
-          "containers": Array [
-            Object {
+        "spec": {
+          "containers": [
+            {
               "image": "nginx:latest",
               "name": "nginx",
-              "ports": Array [
-                Object {
+              "ports": [
+                {
                   "containerPort": 8080,
                 },
               ],
-              "volumeMounts": Array [
-                Object {
+              "volumeMounts": [
+                {
                   "mountPath": "/mounted/",
                   "name": "host-mounted",
                 },
               ],
             },
           ],
-          "volumes": Array [
-            Object {
-              "hostPath": Object {
+          "volumes": [
+            {
+              "hostPath": {
                 "path": "/var/log/",
               },
               "name": "host-mounted",
